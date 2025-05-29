@@ -16,13 +16,13 @@ const About: React.FC = () => {
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">About Me</h2>
         <p className="text-lg leading-relaxed">
-          I'm <strong>Yousra Abid</strong>, a passionate Full Stack Developer based in Marrakech, Morocco.
+          I&apos;m <strong>Yousra Abid</strong>, a passionate Full Stack Developer based in Marrakech, Morocco.
           I specialize in <strong>Laravel, ReactJS, and Next.js</strong>, and I love crafting clean,
           scalable web applications with great user experience.
         </p>
         <p className="mt-4 text-lg">
-          I’ve worked with international teams, integrated real-time features with WebSockets, and led Agile projects.
-          I'm always exploring new technologies like TypeScript and AI-driven solutions.
+          I&apos;ve worked with international teams, integrated real-time features with WebSockets, and led Agile projects.
+         I&apos;m always exploring new technologies like TypeScript and AI-driven solutions.
         </p>
       </div>
     </section>

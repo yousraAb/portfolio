@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8 }}
         className="text-center max-w-2xl"
       >
-        <h1 className="text-5xl font-bold mb-4">Hi, I'm Yousra Abid</h1>
+        <h1 className="text-5xl font-bold mb-4">Hi, I&apos;m Yousra Abid</h1>
         <p className="text-xl mb-6">Full Stack Developer | Laravel & ReactJS</p>
         <a
           href="#projects"
