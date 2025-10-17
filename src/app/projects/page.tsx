@@ -32,15 +32,21 @@ import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
 
 export async function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
 }
 
-export default async function ProjectDetail({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const project = projects.find((p) => p.slug === params.slug);
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export default async function ProjectDetail({ params }: Props) {
+  const { slug } = await params;
+
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
 
   return (
