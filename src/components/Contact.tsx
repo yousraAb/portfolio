@@ -37,6 +37,7 @@ const Contact: React.FC = () => {
     email: "",
     message: "",
   });
+  const email = "yousraabid93@gmail.com";
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,10 +107,17 @@ const Contact: React.FC = () => {
         </form>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="bg-white p-5 shadow flex items-center gap-4 rounded-lg">
+
+          <a
+            href={`mailto:${email}`}
+            className="bg-white p-5 shadow flex items-center gap-4 rounded-lg hover:bg-indigo-50 transition"
+          >
             <Mail className="text-indigo-600" />
-            <span>yousraabid93@gmail.com</span>
-          </div>
+            <span className="text-indigo-700 font-medium">{email}</span>
+          </a>
+
+
+          
           <div className="bg-white p-5 shadow flex items-center gap-4 rounded-lg">
             <MapPin className="text-indigo-600" />
             <span>Marrakech, Morocco</span>
@@ -126,8 +134,9 @@ const Contact: React.FC = () => {
             <span className="text-indigo-700 font-medium">LinkedIn Profile</span>
           </a>
 
+
           <a
-            href="https://wa.me/212649922723"
+            href="https://api.whatsapp.com/send?phone=212649922723&text=Hello!"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => toast.info("Opening WhatsApp...")}
