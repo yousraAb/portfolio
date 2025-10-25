@@ -1,28 +1,3 @@
-// const Contact: React.FC = () => {
-//   return (
-//     <section id="contact" className="py-20 px-4 bg-gray-100 text-gray-900">
-//       <div className="max-w-3xl mx-auto text-center">
-//         <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
-//         <p className="mb-4">Interested in working together? Let’s talk!</p>
-//         <p className="mb-2">📧 yousraabid93@gmail.com</p>
-//         <p>📍 Marrakech, Morocco</p>
-//         <div className="mt-4">
-//           <a
-//             href="https://www.linkedin.com/in/yousra-abid/"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="text-indigo-600 hover:underline"
-//           >
-//             LinkedIn Profile
-//           </a>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Contact;
-
 "use client";
 
 import React, { useState } from "react";
@@ -36,36 +11,47 @@ const Contact: React.FC = () => {
     name: "",
     email: "",
     message: "",
+    title: "title1",
   });
-  const email = "yousraabid93@gmail.com";
 
-  const sendEmail = (e: React.FormEvent) => {
+  const myEmail = "yousraabid93@gmail.com";
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+
     e.preventDefault();
 
     emailjs
       .send(
-        "your_service_id",   // replace with your EmailJS service ID
-        "your_template_id",  // replace with your EmailJS template ID
-        formData,
-        "your_public_key"    // replace with your EmailJS public key
+        "service_6v17xqn",
+        "template_k02fnf8",
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          title: "New Contact Message",
+        },
+        "pJpelVQa1Q404d85Y"
       )
       .then(
         () => {
-          toast.success("Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" });
+          toast.success("✅ Message sent successfully!");
+          setFormData({ name: "", email: "", message: "", title: "" });
         },
         (error) => {
-          console.error(error.text);
-          toast.error("Failed to send message.");
+          console.error(error);
+          toast.error("❌ Failed to send message. Try again later!");
         }
       );
   };
 
+
   return (
     <section id="contact" className="py-20 px-4 bg-gray-100 text-gray-900">
+      <div className="max-w-4xl mx-auto text-center py-10">
+        <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+      </div>
       <ToastContainer />
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-6">Contact Me</h2>
 
         <form
           onSubmit={sendEmail}
@@ -76,48 +62,54 @@ const Contact: React.FC = () => {
             placeholder="Your Name"
             name="name"
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, name: e.target.value })
+            }
             required
-            className="w-full border border-gray-300 rounded p-2"
+            className="w-full border border-gray-300 rounded p-3 focus:ring-2 focus:ring-indigo-500 outline-none transition"
           />
+
           <input
             type="email"
             placeholder="Your Email"
             name="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             required
-            className="w-full border border-gray-300 rounded p-2"
+            className="w-full border border-gray-300 rounded p-3 focus:ring-2 focus:ring-indigo-500 outline-none transition"
           />
+
           <textarea
             placeholder="Your Message"
             name="message"
             rows={5}
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
             required
-            className="w-full border border-gray-300 rounded p-2"
+            className="w-full border border-gray-300 rounded p-3 focus:ring-2 focus:ring-indigo-500 outline-none transition resize-none"
           />
+
           <button
             type="submit"
-            className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition"
+            className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 active:scale-[0.98] transition-all w-full font-medium shadow-md"
           >
             Send Message
           </button>
         </form>
 
         <div className="grid gap-4 md:grid-cols-2">
-
           <a
-            href={`mailto:${email}`}
+            href={`mailto:${myEmail}`}
             className="bg-white p-5 shadow flex items-center gap-4 rounded-lg hover:bg-indigo-50 transition"
           >
             <Mail className="text-indigo-600" />
-            <span className="text-indigo-700 font-medium">{email}</span>
+            <span className="text-indigo-700 font-medium">{myEmail}</span>
           </a>
 
-
-          
           <div className="bg-white p-5 shadow flex items-center gap-4 rounded-lg">
             <MapPin className="text-indigo-600" />
             <span>Marrakech, Morocco</span>
@@ -133,7 +125,6 @@ const Contact: React.FC = () => {
             <Linkedin className="text-indigo-600" />
             <span className="text-indigo-700 font-medium">LinkedIn Profile</span>
           </a>
-
 
           <a
             href="https://api.whatsapp.com/send?phone=212649922723&text=Hello!"
