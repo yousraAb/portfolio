@@ -8,6 +8,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+  title: "Nexus Accessibility SaaS",
+  slug: "nexus-accessibility-saas",
+  description:
+    "Collaborated with a product owner on a SaaS platform that helps clients test and improve website accessibility.",
+  content: `Worked on project management and frontend development for Nexus, a SaaS solution focused on web accessibility compliance. 
+I contributed to planning, feature design, and frontend implementation using React and TypeScript, converting Figma designs into dynamic, accessible UI components. 
+The platform aimed to assist users with disabilities by helping companies make their digital products more inclusive.`,
+  tech: ["React", "TypeScript", "Figma", "SaaS", "Accessibility", "Tailwind CSS"],
+},
+
+  {
     title: "Appointment Calendar System",
     slug: "appointment-calendar-system",
     description:
@@ -15,7 +26,7 @@ export const projects: Project[] = [
     content: `This system enables call center agents to book appointments for field agents.
 Supervisors must confirm them, and WebSockets allow live updates across users.
 It uses FullCalendar, Laravel API, and role-based authentication.`,
-    tech: ["Laravel", "ReactJS", "WebSockets", "MySQL"],
+    tech: ["Laravel", "ReactJS", "Ant Design ", "WebSockets", "MySQL"],
   },
   {
     title: "Appliance Repair Management System",
