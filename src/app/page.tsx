@@ -8,6 +8,9 @@ import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import PMOSection from "@/components/PMOSection";
+import Services from "@/components/Services";
+
 
 export default function Home() {
   return (
@@ -16,8 +19,10 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Projects />
         <Skills />
+        <Projects />
+        <PMOSection />
+        <Services />
         <Contact />
         <ScrollToTop />
         <Footer />

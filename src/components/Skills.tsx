@@ -12,10 +12,25 @@ const skills = [
   "WebSockets",
   "MySQL",
   "Agile",
+  "Scrum",
+  "Project Management",
+  "PMO",
+  "Roadmaps",
+  "Task Breakdown",
+  "Team Coordination",
+  "Risk Management",
+  "Reporting",
+  "Dashboards",
+  "Cross-team Communication",
   "GitHub",
   "WordPress",
   "CI/CD",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "PHP",
 ];
+
 
 const Skills: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
