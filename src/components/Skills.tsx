@@ -74,8 +74,8 @@ const Skills: React.FC = () => {
                   ? {}
                   : {
                       opacity: 0,
-                      y: Math.random() * 100 - 50,
-                      x: Math.random() * 100 - 50,
+                      y: ((index % 5) - 2) * 18,
+                      x: ((index % 4) - 1.5) * 18,
                       scale: 0.8,
                     }
               }
@@ -122,8 +122,8 @@ const Skills: React.FC = () => {
               key={i}
               className="absolute w-2 h-2 rounded-full bg-fuchsia-400/30"
               initial={{
-                x: `${Math.random() * 100}%`,
-                y: `${Math.random() * 100}%`,
+                x: `${(i * 37) % 100}%`,
+                y: `${(i * 61) % 100}%`,
               }}
               animate={
                 prefersReducedMotion
@@ -134,7 +134,7 @@ const Skills: React.FC = () => {
                     }
               }
               transition={{
-                duration: 6 + Math.random() * 4,
+                duration: 6 + (i % 5),
                 repeat: Infinity,
                 ease: "easeInOut",
                 delay: i * 0.5,
