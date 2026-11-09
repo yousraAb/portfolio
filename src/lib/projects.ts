@@ -4,6 +4,8 @@ export type Project = {
   description: string;
   content: string;
   tech: string[];
+  liveUrl?: string;
+  repositoryUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -73,5 +75,6 @@ Included SEO optimization and WCAG accessibility. Client project without a publi
 Developed using Next.js, Tailwind CSS, and Framer Motion for smooth animations and performance.
 The project is SEO-friendly, responsive, and optimized for accessibility.`,
     tech: ["Next.js", "ReactJS", "Framer Motion", "Tailwind CSS", "TypeScript"],
+    liveUrl: "https://yousra-abid.vercel.app/",
   },
 ];

@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const navLinks = [
   { label: "Home", to: "hero" },
@@ -19,6 +19,7 @@ const navLinks = [
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +41,7 @@ const Header: React.FC = () => {
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-6">
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           aria-label="Yousra Abid Developer Logo"
           className="text-xl font-extrabold tracking-wide bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent"
@@ -57,14 +58,14 @@ const Header: React.FC = () => {
           {navLinks.map((link, index) => (
             <motion.div
               key={link.to}
-              initial={{ opacity: 0, y: -10 }}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * index }}
+              transition={{ delay: prefersReducedMotion ? 0 : 0.1 * index }}
             >
               <ScrollLink
                 to={link.to}
                 smooth
-                duration={500}
+                duration={prefersReducedMotion ? 0 : 500}
                 offset={-80}
                 aria-label={`Scroll to ${link.label} section`}
                 className={`cursor-pointer text-sm font-medium tracking-wide transition text-white hover:text-indigo-300`}
@@ -110,7 +111,7 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden backdrop-blur-md bg-gradient-to-b from-purple-700/30 to-indigo-900/40 border-t border-white/10 px-4 pt-2 pb-4"
         >
@@ -119,7 +120,7 @@ const Header: React.FC = () => {
               key={link.to}
               to={link.to}
               smooth
-              duration={500}
+              duration={prefersReducedMotion ? 0 : 500}
               offset={-80}
               onClick={() => setIsOpen(false)}
               aria-label={`Navigate to ${link.label} section`}

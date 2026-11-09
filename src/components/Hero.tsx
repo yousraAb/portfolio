@@ -42,10 +42,12 @@
 // };
 // export default Hero;
 "use client";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 
 const Hero = () => {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section
       id="hero"
@@ -54,14 +56,14 @@ const Hero = () => {
     >
       {/* animated particles */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#6366f1,transparent_40%),radial-gradient(circle_at_80%_70%,#ec4899,transparent_40%)] animate-pulse opacity-20"
+        className={`absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#6366f1,transparent_40%),radial-gradient(circle_at_80%_70%,#ec4899,transparent_40%)] opacity-20 ${prefersReducedMotion ? "" : "animate-pulse"}`}
         aria-hidden="true"
       />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
         className="max-w-2xl z-10"
       >
         <h1 className="text-5xl md:text-6xl font-bold mb-4">
@@ -85,7 +87,7 @@ const Hero = () => {
           <ScrollLink
             to="projects"
             smooth={true}
-            duration={600}
+            duration={prefersReducedMotion ? 0 : 600}
             offset={-70}
             className="bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-indigo-600 transition shadow-md cursor-pointer"
           >
@@ -95,7 +97,7 @@ const Hero = () => {
           <ScrollLink
             to="contact"
             smooth={true}
-            duration={600}
+            duration={prefersReducedMotion ? 0 : 600}
             offset={-70}
             className="border border-indigo-400 text-indigo-300 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-950 transition cursor-pointer"
           >

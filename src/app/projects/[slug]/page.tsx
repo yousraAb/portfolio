@@ -41,18 +41,6 @@ export default function ProjectPage() {
 
         <p className="text-gray-300 mb-8 max-w-3xl">{project.description}</p>
 
-        {/* Visual / Placeholder */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mb-10 rounded-2xl overflow-hidden border border-white/10 shadow-xl"
-        >
-          <div className="h-64 md:h-80 bg-gradient-to-r from-indigo-500/10 via-fuchsia-500/10 to-transparent flex items-center justify-center text-gray-500 text-sm">
-            <span>No preview available — description below</span>
-          </div>
-        </motion.div>
-
         {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -86,29 +74,30 @@ export default function ProjectPage() {
             </div>
           </div>
 
-          {/* Buttons (conditionally shown) */}
-          <div className="flex flex-wrap gap-4 pt-6">
-            {project.slug === "personal-portfolio" && (
-              <a
-                href="https://yousra-abid.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-md transition"
-              >
-                <ExternalLink size={18} /> Visit Website
-              </a>
-            )}
-
-            {/* Add GitHub or demo if available */}
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-indigo-400/30 text-indigo-300 px-6 py-3 rounded-lg hover:bg-indigo-500/10 transition"
-            >
-              <Github size={18} /> View Code
-            </a>
-          </div>
+          {(project.liveUrl || project.repositoryUrl) && (
+            <div className="flex flex-wrap gap-4 pt-6">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-6 py-3 text-white shadow-md transition hover:bg-indigo-600"
+                >
+                  <ExternalLink size={18} /> View live project
+                </a>
+              )}
+              {project.repositoryUrl && (
+                <a
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-indigo-400/30 px-6 py-3 text-indigo-300 transition hover:bg-indigo-500/10"
+                >
+                  <Github size={18} /> View source code
+                </a>
+              )}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
