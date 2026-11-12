@@ -79,3 +79,11 @@ Each improvement is recorded here with its date, changed behavior, and verificat
 - Added server-generated title and description metadata for each `/projects/[slug]` page, using the existing project data.
 - Added a fallback title for unknown project slugs.
 - Verification: editor diagnostics report no errors in the new route layout.
+
+### 2026-11-10: Add Automation & Systems Integration section
+
+- Added a reusable homepage section after Technical Skills with the requested introduction, six capability areas, and technical-stack tags.
+- Added a responsive three-stage systems-flow diagram for connected systems, workflow orchestration, and automated processes.
+- Added an Automation anchor with fragment URLs to the existing desktop and mobile navigation.
+- Described WordPress experience as workflows involving more than 1,000 websites; did not imply ownership of all sites or add unprovided client names, results, or credentials.
+- Verification: editor diagnostics report no errors in the new component, homepage, or header. Browser checks confirmed the anchor target and six capability cards at 1440px and 390px widths, with no horizontal overflow.

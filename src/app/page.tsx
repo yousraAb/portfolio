@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import Automation from "@/components/Automation";
 import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
+        <Automation />
         <Projects />
         <PMOSection />
         <Services />
