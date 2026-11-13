@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Home", to: "hero" },
   { label: "About", to: "about" },
   { label: "Skills", to: "skills" },
+  { label: "Automation", to: "automation" },
   { label: "Projects", to: "projects" },
   { label: "PMO", to: "pmo" },
   { label: "Services", to: "services" },
@@ -64,6 +65,7 @@ const Header: React.FC = () => {
             >
               <ScrollLink
                 to={link.to}
+                href={`#${link.to}`}
                 smooth
                 duration={prefersReducedMotion ? 0 : 500}
                 offset={-80}
@@ -119,6 +121,7 @@ const Header: React.FC = () => {
             <ScrollLink
               key={link.to}
               to={link.to}
+              href={`#${link.to}`}
               smooth
               duration={prefersReducedMotion ? 0 : 500}
               offset={-80}
